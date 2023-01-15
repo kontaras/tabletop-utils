@@ -18,7 +18,7 @@ class Divider:
 
 class Hero:
     def __init__(self, name: str, signature: dict[str, int],
-                 nemesis: dict[str, int], obligation: str):
+                 nemesis: dict[str, int], obligation: dict[str, int]):
         self.name = name
         self.signature = signature
         self.nemesis = nemesis
@@ -26,7 +26,7 @@ class Hero:
 
     def get_dividers(self) -> list[Divider]:
         nemesis_set = SubList("Nemesis set", self.nemesis)
-        obligation_set = SubList("Obligation", {self.obligation: 1})
+        obligation_set = SubList("Obligation", self.obligation)
         return [Divider(self.name, self.signature, [nemesis_set, obligation_set])]
 
 
@@ -35,6 +35,7 @@ class Aspect(Enum):
     LEADERSHIP = auto()
     PROTECTION = auto()
     JUSTICE = auto()
+    MULTICOLOR = auto()
 
 
 class AspectDeck:
@@ -75,12 +76,23 @@ class Modular:
         return [Divider("Modular encounter: " + self.name, self.cards)]
 
 class Campaign:
-    def __init__(self, heroes: list[Hero], aspects: list[AspectDeck],
-                 villains: list[Villain], modulars: list[Modular]):
+    def __init__(self, name: str, cards: dict[str, int]):
+        self.name = name
+        self.cards = cards
+
+    def get_dividers(self) -> list[Divider]:
+        return [Divider(self.name, self.cards)]
+
+class Release:
+    def __init__(self, heroes: list[Hero] = [], aspects: list[AspectDeck] = [],
+                 villains: list[Villain] = [], modulars: list[Modular] = [],
+                 campaigns: list[Campaign] = [], extras: dict[str, int] = {}):
         self.heroes = heroes
         self.aspects = aspects
         self.villains = villains
         self.modulars = modulars
+        self.campaigns = campaigns
+        self.extras = extras
 
     def get_heroes(self) -> list[Hero]:
         return self.heroes
@@ -93,3 +105,9 @@ class Campaign:
 
     def get_modulars(self) -> list[Modular]:
         return self.modulars
+
+    def get_campaigns(self) -> list[Campaign]:
+        return self.campaigns
+
+    def get_extras(self) -> dict[str, int]:
+        return self.extras

@@ -1,17 +1,20 @@
 from renderer import render
-from sets.campaign import sinister_motives
+from sets.campaign import *
+from sets.hero import *
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    dividers = []
+    releases = [sinister_motives, scarlet_witch, gamora]
     sets = []
-    sets += sinister_motives.get_heroes()
-    sets += sinister_motives.get_aspects()
-    sets += sinister_motives.get_villains()
-    sets += sinister_motives.get_modulars()
+    for release in releases:
+        sets += release.get_heroes()
+        sets += release.get_aspects()
+        sets += release.get_villains()
+        sets += release.get_modulars()
+        sets += release.get_campaigns()
 
-
+    dividers = []
     for cardSet in sets:
         dividers += cardSet.get_dividers()
 
