@@ -54,16 +54,21 @@ class AspectDeck:
 
 class Villain:
     def __init__(self, name: str, villain_deck: list[str], schemes: list[str],
-                 encounter: dict[str, int]):
+                 encounter: dict[str, int],
+                 extra_lists: dict[str, list[str]] = {}):
         self.name = name
         self.villain_deck = villain_deck
         self.schemes = schemes
         self.encounter = encounter
+        self.extra_lists = extra_lists
 
     def get_dividers(self) -> list[Divider]:
+        sub_lists = [SubList("Main scheme deck",
+                            dict.fromkeys(self.schemes, 1))]
+        for name, cards in self.extra_lists.items():
+            sub_lists.append(SubList(name, dict.fromkeys(cards, 1) ))
         main_divider = Divider(self.name, dict.fromkeys(self.villain_deck, 1),
-                               [SubList("Main scheme deck",
-                                        dict.fromkeys(self.schemes, 1))])
+                               sub_lists)
         encounter_divider = Divider(self.name + ' encounter set', self.encounter)
         return [main_divider, encounter_divider]
 
@@ -73,7 +78,7 @@ class Modular:
         self.cards = cards
 
     def get_dividers(self) -> list[Divider]:
-        return [Divider("Modular encounter: " + self.name, self.cards)]
+        return [Divider("Modular Encounter: " + self.name, self.cards)]
 
 class Campaign:
     def __init__(self, name: str, cards: dict[str, int]):
@@ -81,7 +86,7 @@ class Campaign:
         self.cards = cards
 
     def get_dividers(self) -> list[Divider]:
-        return [Divider(self.name, self.cards)]
+        return [Divider(f'Campaign Deck: {self.name}', self.cards)]
 
 class Release:
     def __init__(self, heroes: list[Hero] = [], aspects: list[AspectDeck] = [],
