@@ -10,7 +10,7 @@ from sets.scenarios import *
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     releases = [sinister_motives, scarlet_witch, gamora, ronan,
-                the_once_and_future_kang]
+                the_once_and_future_kang, mutant_genesis]
     sets = collections.defaultdict(list)
     for release in releases:
         sets["heroes"] += release.get_heroes()

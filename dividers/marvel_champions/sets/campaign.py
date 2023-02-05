@@ -282,16 +282,292 @@ sinister_motives = Release(
                             "Henchmen Heist": 1,
                             "Off the Rails": 1,
                             "Rubble Rescue": 1
+                        })]
+)
+
+mutant_genesis = Release(
+    heroes=[Hero("Colossus/Piotr Rasputin",
+                 signature= {
+                     "Shadowcat (Kitty Pryde)": 1,
+                     "Piotr’s Studio": 1,
+                     "Iron Will": 1,
+                     "Titanium Muscles": 1,
+                     "Organic Steel": 2,
+                     "Made of Rage": 2,
+                     "Steel Fist": 3,
+                     "Bulletproof Protector": 2,
+                     "Armor Up": 2
+                 },
+                 nemesis= {
+                     "Juggernaut": 1,
+                     "Rampaging Juggernaut": 1,
+                     "Unstoppable": 2,
+                     "Slammed": 1
+                 },
+                 obligation={"Homesick": 1}
+                 ),
+            Hero("Shadowcat/Kitty Pride",
+                 signature= {
+                     "Solid / Phased": 1,
+                     "Lockheed": 1,
+                     "Kitty’s Room": 1,
+                     "Acute Control": 1,
+                     "Intangible Interference": 1,
+                     "Phased and Confused": 2,
+                     "Shadowcat Surprise": 3,
+                     "Phased Strike": 2,
+                     "Airwalk": 2,
+                     "Quick Shift": 2
+                 },
+                 nemesis= {
+                     "White Queen": 1,
+                     "The Hellfire Club": 1,
+                     "Hellfire Pawn": 2,
+                     "Telepathic Restraint": 1
+                 },
+                 obligation= {"Permanently Phased": 1}
+                 )],
+    aspects=[AspectDeck("Colossus/Piotr Rasputin",
+                        aspect=[Aspect.PROTECTION],
+                        cards= {
+                            # Protection cards
+                            "Nightcrawler (Kurt Wagner)": 1,
+                            "Polaris (Lorna Dane)": 1,
+                            "Protective Training": 3,
+                            "Powerful Punch": 3,
+                            "Bait and Switch": 3,
+                            "Perseverance": 3,
+                            "Mutant Protectors": 3,
+                            "Defensive Energy": 2,
+                            # Basic cards
+                            "Professor X (Charles Xavier)": 1,
+                            "The X-Jet": 1,
+                            "Shadow and Steel": 1,
+                            "Energy": 1,
+                            "Genius": 1,
+                            "Strength": 1
+                        }
+                        ),
+             AspectDeck("Shadowcat/Kitty Pride",
+                        aspect=[Aspect.AGGRESSION],
+                        cards= {
+                            # Aggression cards
+                            "Wolverine (Logan)": 1,
+                            "Magik (Illyana Rasputin)": 1,
+                            "Attack Training": 3,
+                            "Gatekeeper": 3,
+                            "Team Strike": 3,
+                            "Toe to Toe": 3,
+                            "Aggressive Energy": 2,
+                            # Basic cards
+                            "Colossus (Piotr Rasputin)": 1,
+                            "X-Mansion": 1,
+                            "Shadow and Steel": 1,
+                            "Ready to Rumble": 3,
+                            "Energy": 1,
+                            "Genius": 1,
+                            "Strength": 1
+                        })],
+    villains= [Villain("Sabretooth",
+                       villain_deck= [
+                           "Sabretooth (I)",
+                           "Sabretooth (II)",
+                           "Sabretooth (III)"
+                       ],
+                       schemes= [
+                           "Stalked by Sabretooth",
+                           "The Injured Senator"
+                       ],
+                       encounter= {
+                           "Find the Senator": 1,
+                           "Robert Kelly": 1,
+                           "Adamantium Claws": 1,
+                           "Animal Ferocity": 1,
+                           "Sabretooth Strikes": 2,
+                           "Unreleting Savage": 3,
+                           "Medical Emergency": 2,
+                           "Feral Rage": 1
+                       }),
+               Villain("Project Wideawake",
+                       villain_deck=[
+                           "Sentinel (I)",
+                           "Sentinel (II)",
+                           "Sentinel (III)"
+                       ],
+                       schemes=["Night of the Sentinels"],
+                       encounter= {
+                           "Mutant at the Mall/Jubilee (Jubilation Lee)": 1,
+                           "Rictor": 1,
+                           "Boom Boom": 1,
+                           "Cannonball": 1,
+                           "Wolfsbane": 1,
+                           "Sentinel Mark IV": 2,
+                           "Gauntlet Beam": 2,
+                           "Learning A.I.": 1,
+                           "Adaptive Armor": 1,
+                           "Self-Repair": 1,
+                           "Mutant Detected": 2,
+                           "Warn the Others": 2,
+                           "Abduction Protocols": 4
+                       }),
+               Villain("Master Mold",
+                       villain_deck= [
+                           "Master Mold (I)",
+                           "Master Mold (II)",
+                           "Master Mold (III)"
+                       ],
+                       schemes= [
+                           "The Sentinel Factory",
+                           "Master Mold's Agenda"
+                       ],
+                       encounter= {
+                           "Sentinel Mark VIII": 2,
+                           "Unit Upgrade": 2,
+                           "Stun Beam": 2,
+                           "Master Mold's Children": 2,
+                           "Shields Up": 2,
+                           "Intruder Alert!": 1,
+                           "Insert Virus Program": 2
+                       }),
+               Villain("Mansion Attack",
+                       villain_deck= [
+                           "Avalanche",
+                           "Blob",
+                           "Pyro",
+                           "Toad"
+                       ],
+                       schemes= [
+                           "The Brotherhood Strikes!",
+                           "The Atrium",
+                           "The Cafeteria",
+                           "The Basketball Court",
+                           "The Courtyard"
+                       ],
+                       encounter= {
+                           "Save the School": 1,
+                           "Brotherhood Beatdown": 3,
+                           "Ground Swell": 2,
+                           "Immovable": 2,
+                           "Pyromaniac": 2,
+                           "Hopping Mad": 2,
+                           "Protect the Students": 2,
+                           "Under Siege": 2
+                       }),
+               Villain("Magneto",
+                       villain_deck= [
+                           "Magneto (I)",
+                           "Magneto (II)",
+                           "Magneto (III)"
+                       ],
+                       schemes= [
+                           "Asteroid M",
+                           "Factory Online",
+                           "The Rule of Magnus"
+                       ],
+                       encounter= {
+                           "Boarding Party/Sabotage Master Mold": 1,
+                           "Orbital Decay/Physical Strain": 1,
+                           "M-Type Sentinel": 4,
+                           "Magneto's Helmet": 1,
+                           "Magneto's Armor": 1,
+                           "Magnetic Bubble": 1,
+                           "Wrapped in Metal": 1,
+                           "Master of Magnetism": 2,
+                           "Electric Shock": 2,
+                           "Electromagnetic Blast": 2,
+                           "Metal Shards": 2,
+                           "Magnetic Missile": 2,
+                           "Magnetic Mayhem": 1,
+                           "Magnetically Sealed": 1,
+                           "Seized!": 1
+                       })],
+    modulars= [Modular("Brotherhood",
+                       cards= {
+                           "Avalanche": 1,
+                           "Blob": 1,
+                           "Pyro": 1,
+                           "Toad": 1,
+                           "Homo Superior": 2,
+                           "Mutant Terrorists": 1,
+                           "The Brotherhood": 1
+                       }),
+               Modular("Mystique",
+                       cards= {
+                           "Mystique": 1,
+                           "Metamorphic Mayhem": 1,
+                           "Infiltration": 2,
+                           "Shapeshifter Surprise": 1
+                       }),
+               Modular("Zero Tolerance",
+                       cards={
+                           "Sentinel Mark II": 2,
+                           "Sentinel Mark III": 2,
+                           "Energy Barrier": 2,
+                           "Operation Zero Tolerance": 1
+                       }),
+               Modular("Sentinels",
+                       cards= {
+                           "Sentinel Mark V": 2,
+                           "Sentinel Mark VI": 2,
+                           "Targeted for Elimination": 2,
+                           "Relentless Robots": 1
+                       }),
+               Modular("Acolytes",
+                       cards= {
+                           "Fabian Cortez": 1,
+                           "Amelia Voght": 1,
+                           "Senyaka": 1,
+                           "Delgado": 1,
+                           "Unuscione": 1,
+                           "Zeal for the Cause": 1,
+                           "The Acolytes": 1
+                       }),
+               Modular("Future Past",
+                       cards= {
+                           "Nimrod": 1,
+                           "Bastion": 1,
+                           "Nimrod's Portal": 1,
+                           "Bastion's Machinations": 1,
+                           "Nano-Sentinel Tech": 1
+                       })],
+    campaigns=[Campaign("Mutant Genesis Campaign",
+                        cards= {
+                            "Frightened Police/Metro P.D.": 1,
+                            "Enemy of My Enemy/Magneto": 1,
+                            "Find the Prisoners/Rescue Captives": 1,
+                            "Reactive Defense/Surprise Attack": 1,
+                            "Magneto's Fortress/Magneto's Power": 1
                         }),
-               Campaign("S.H.I.E.L.D. Tech",
-                        cards={
-                            "Compact Darts": 1,
-                            "Impact-Dampening Suit": 1,
-                            "Laser Goggles": 1,
-                            "Propulsion Gauntlet": 1,
-                            "Retinal Display": 1,
-                            "Shock Knuckles": 1,
-                            "Wave Bracers": 1,
-                            "Wrist Navigator": 1
+               Campaign("Brawler",
+                        cards= {
+                            "Coup de Grâce": 1,
+                            "Swagger": 1,
+                            "Brazen Defense": 1,
+                            "Ferocious Attack": 1,
+                            "War Cry": 1
+                        }),
+               Campaign("Commander",
+                        cards= {
+                            "Coup de Grâce": 1,
+                            "Compassion": 1,
+                            "Group Assault": 1,
+                            "Shock and Awe": 1,
+                            "Improvisation": 1
+                        }),
+               Campaign("Defender",
+                        cards= {
+                            "Swagger": 1,
+                            "Surprise!": 1,
+                            "Heroic Intervention": 1,
+                            "Determined Defense": 1,
+                            "Bodyguard": 1
+                        }),
+               Campaign("Peacekeeper",
+                        cards= {
+                            "Surprise!": 1,
+                            "Compassion": 1,
+                            "Rescue Operation": 1,
+                            "Mentorship": 1,
+                            "Fortitude": 1
                         })]
 )
